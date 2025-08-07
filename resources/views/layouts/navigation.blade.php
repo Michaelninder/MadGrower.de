@@ -24,6 +24,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-madgrower-description dark:text-madgrower-description bg-madgrower-white dark:bg-madgrower-background hover:text-madgrower-black dark:hover:text-madgrower-white focus:outline-none transition ease-in-out duration-150">
+                            <img src="{{ Auth::user()->avatar }}" alt="Avatar" class="w-8 h-8 rounded-full mr-2">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -75,9 +76,14 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-madgrower-description dark:border-madgrower-description">
-            <div class="px-4">
-                <div class="font-medium text-base text-madgrower-black dark:text-madgrower-white">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-madgrower-description">{{ Auth::user()->email }}</div>
+            <div class="px-4 flex items-center">
+                <div class="shrink-0 me-3">
+                    <img src="{{ Auth::user()->avatar }}" alt="Avatar" class="w-10 h-10 rounded-full">
+                </div>
+                <div>
+                    <div class="font-medium text-base text-madgrower-black dark:text-madgrower-white">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-madgrower-description">{{ Auth::user()->email }}</div>
+                </div>
             </div>
 
             <div class="mt-3 space-y-1">

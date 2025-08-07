@@ -62,7 +62,9 @@ class User extends Authenticatable
     public function getAvatarAttribute()
     {
         return $this->avatar_url
-            ? asset('storage/' . $this->avatar_url)
-            : 'https://cravatar.eu/avatar/' . $this->username . '/64';
+            ? asset('storage/' . $this->avatar_url) 
+            : asset('img/logo.png');
+            //: 'https://cravatar.eu/avatar/' . $this->username . '/64';
+
     }
 }

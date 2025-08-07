@@ -19,9 +19,10 @@
 
         <div class="flex items-center">
             <img src="{{ $user->avatar }}" alt="Avatar" class="w-16 h-16 rounded-full">
-            <div class="ml-4">
-                <x-input-label for="avatar" :value="__('Avatar')" />
-                <input type="file" name="avatar" id="avatar" class="mt-1 block w-full">
+            <div class="ml-4 flex-grow">
+                <x-file-input id="avatar" name="avatar">
+                    {{ __('Avatar') }}
+                </x-file-input>
                 <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
             </div>
         </div>
