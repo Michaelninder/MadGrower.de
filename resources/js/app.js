@@ -6,17 +6,38 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-const themeSwitcher = document.getElementById('theme-switcher');
+document.addEventListener('DOMContentLoaded', () => {
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const html = document.documentElement;
 
-if (localStorage.getItem('dark-mode') === 'true') {
-    document.documentElement.classList.add('dark');
-}
+    const setInitialIconState = () => {
+        if (html.classList.contains('dark')) {
+            document.getElementById('moon-icon').style.transform = 'rotate(0deg) scale(1)';
+            document.getElementById('moon-icon').style.opacity = '1';
+            document.getElementById('sun-icon').style.transform = 'rotate(180deg) scale(0)';
+            document.getElementById('sun-icon').style.opacity = '0';
+        } else {
+            document.getElementById('sun-icon').style.transform = 'rotate(0deg) scale(1)';
+            document.getElementById('sun-icon').style.opacity = '1';
+            document.getElementById('moon-icon').style.transform = 'rotate(-180deg) scale(0)';
+            document.getElementById('moon-icon').style.opacity = '0';
+        }
+    };
 
-themeSwitcher.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    if (document.documentElement.classList.contains('dark')) {
-        localStorage.setItem('dark-mode', 'true');
-    } else {
-        localStorage.removeItem('dark-mode');
+    if (localStorage.getItem('dark-mode') === 'true') {
+        html.classList.add('dark');
     }
+
+    setInitialIconState();
+
+    themeSwitcher.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        if (html.classList.contains('dark')) {
+            localStorage.setItem('dark-mode', 'true');
+        } else {
+            localStorage.removeItem('dark-mode');
+        }
+        setInitialIconState();
+    });
 });
+
