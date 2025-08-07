@@ -67,7 +67,7 @@
 <script>
     window.addEventListener('load', function() {
         const preloader = document.querySelector('.preloader');
-        const minDisplayTime = 80000;
+        const minDisplayTime = 800;
         const startTime = Date.now();
 
         function hidePreloader() {
