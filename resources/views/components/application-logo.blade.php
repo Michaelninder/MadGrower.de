@@ -1,5 +1,4 @@
 <img
-    class="application-logo"
     src="{{ asset('img/logo.png') }}"
     alt="Application Logo"
     {{ $attributes }}
@@ -7,6 +6,12 @@
 
 <style>
     .application-logo {
+        width: 100px;
+        height: 100px;
+        transform: rotate(0deg) scale(0.75);
+        transition: transform 0.69s ease-in-out;
+    }
+    .application-logo-animated {
         width: 69px;
         height: 69px;
         transform: rotate(0deg) scale(0.75);
@@ -15,7 +20,7 @@
         animation-duration: 1s;
     }
 
-    .application-logo:hover {
+    .application-logo-animated:hover {
         transform: rotate(360deg) scale(0.7);
         animation: logo-rotate 0.69s ease-in-out forwards;
     }
@@ -55,7 +60,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const logo = document.querySelector('.application-logo');
+        const logo = document.querySelector('.application-logo-animated');
 
         logo.addEventListener('mouseenter', () => {
             logo.classList.remove('reverse-rotate');
