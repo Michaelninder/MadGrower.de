@@ -19,9 +19,12 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center sm:ms-6 mr-2">
                 <x-theme-switcher />
-                <x-dropdown align="right" width="48">
+                <div class="ms-3 relative">
+                    <x-set-locale />
+                </div>
+                <x-dropdown align="right" width="24">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-madgrower-description dark:text-madgrower-description bg-madgrower-white dark:bg-madgrower-background hover:text-madgrower-black dark:hover:text-madgrower-white focus:outline-none transition ease-in-out duration-150">
                             <img src="{{ Auth::user()->avatar }}" alt="Avatar" class="w-8 h-8 rounded-full mr-2">
